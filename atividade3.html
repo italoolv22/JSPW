@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras</title>
+    <style>
+        input[type="text"] {
+         margin-right: 10px;
+        }
+
+        label {
+        margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <style>
+
+        header {
+			background-color: #f31010c5;
+		    color: #ccc;
+		    padding: 10px;
+		    text-align: center;
+		}
+
+        footer {
+            background-color: #f31010c5;
+            color: #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+
+    </style>
+
+
+
+	<header>
+		<h1>Lista de compras</h1>
+	</header>
+
+    <div>
+        <input type="text" id="itemInput" placeholder="Item para adicionar">
+        <label><input type="radio" name="cores" value="red">Urgente</label>
+        <label><input type="radio" name="cores" value="blue">Necessario</label>
+        <label><input type="radio" name="cores" value="green">Supérfluo</label>
+        <button onclick="addItem()">Adicionar Item</button>
+    </div>
+
+    <ul id="myList">
+       <li>Arroz</li>
+       <li>Feijão</li>
+    </ul>
+
+    <button onclick="limparLista()">Limpar Lista</button>
+
+    <script>
+        function addItem() {
+            var itemInput = document.getElementById("itemInput");
+            var item = itemInput.value;
+
+            var cor = document.querySelector('input[name="cores"]:checked').value;
+
+            var newItem = document.createElement("li");
+            newItem.textContent = item;
+            newItem.style.color = cor;
+
+            var list = document.getElementById("myList");
+            list.appendChild(newItem);
+
+            itemInput.value = "";
+        }
+
+        function limparLista() {
+            var list = document.getElementById("myList");
+            list.innerHTML = "";
+        }
+    </script>
+
+<footer>
+    <p>Fim</p>
+</footer>
+
+</body>
+</html>

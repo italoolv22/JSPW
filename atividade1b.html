@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1 - B</title>
+
+    <style>
+        #resultado {
+            color: blue;
+        }
+
+        #resultado.reprovado {
+            color: red;
+        }
+
+        input[type="text"] {
+         margin-right: 10px;
+        }
+
+        label {
+        margin-right: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <style>
+
+        header {
+			background-color: #f31010c5;
+		    color: #ccc;
+		    padding: 10px;
+		    text-align: center;
+		}
+
+        footer {
+            background-color: #f31010c5;
+            color: #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+<header>
+    <h1>Calcule suas notas</h1>
+</header>
+
+    <h1>Digite as notas:</h1>
+    <input type="number" id="nota1">
+    <input type="number" id="nota2">
+    <button onclick="calcularMedia()">Calcular</button>
+
+    <p>Média: <span id="media"></span></p>
+    <p>Situação: <span id="situacao"></span></p>
+
+    <script>
+        function calcularMedia() {
+            // Obter nota1 e nota2
+            var nota1Input = document.getElementById("nota1");
+            var nota2Input = document.getElementById("nota2");
+
+            var nota1 = parseFloat(nota1Input.value);
+            var nota2 = parseFloat(nota2Input.value);
+
+            // Calcular média
+            var media = (nota1 + nota2) / 2;
+
+            // Verificar situação e cor
+            var situacao, cor;
+            if (media >= 6) {
+                situacao = "Aprovado";
+                cor = "blue";
+            } else {
+                situacao = "Reprovado";
+                cor = "red";
+            }
+
+            // Mostrar média e situação
+            var mediaSpan = document.getElementById("media");
+            mediaSpan.innerHTML = media.toFixed(2);
+
+            var situacaoSpan = document.getElementById("situacao");
+            situacaoSpan.innerHTML = situacao;
+            situacaoSpan.style.color = cor;
+        }
+    </script>
+
+<footer>
+    <p>Fim</p>
+</footer>
+
+</body>
+
+</html>
+
+
